@@ -69,11 +69,11 @@ switch($input){
             }else{
                 $seguro=read-host -prompt "Seguro que quieres eliminarlo? s/n: "
                 if($seguro -eq "s"){
-                    remove-aduser -identity $nombre1.DistinguishedName -bruteforce
+                    remove-aduser -identity $nombre1.DistinguishedName -Confirm
                 }else{ cls 
                 break}
             }
-            cls
+   
             break 
         }
         5{
@@ -244,11 +244,11 @@ switch($input){
     }
 4{
     write-host "Exportar datos sobre objetos del dominio"
-   Get-ADObject -Filter * -properties *| select objectclass, name, distinguishedname | Export-Csv C:\Users\Administrador\Documents\objetos.csv
+   Get-ADObject -Filter * -properties *| select objectclass, name, distinguishedname | Export-Csv C:\Users\Administrador\Desktop\practicaSSII
 }
 5{
     write-host "importacion automática"
-    $users=Import-Csv C:\Users\Administrador\Documents\usuarios.csv
+    $users=Import-Csv C:\Users\Administrador\Desktop\practicaSSII
     foreach($item in $users){
         $activado
   if($item.activado -like "si"){
