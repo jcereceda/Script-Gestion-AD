@@ -1,0 +1,17 @@
+nombre,sam,password,activado,localizacion,grupo
+director,director,Retamar1a,si,direccion,gdireccion
+subdirector,subdirector,Retamar1a,si,direccion,gdireccion
+inf1,inf1,Retamar1a,si,informatica,ginformatica
+inf2,inf2,Retamar1a,si,informatica,ginformatica
+inf3,inf3,Retamar1a,si,informatica,ginformatica
+inf4,inf4,Retamar1a,si,informatica,ginformatica
+inf5,inf5,Retamar1a,si,informatica,ginformatica
+dirventas,dirventas,Retamar1a,si,ventas,gventas
+usventas,usventas,Retamar1a,si,ventas,gventas
+dirfinanzas,dirfinanzas,Retamar1a,si,finanzas,gfinanzas
+usfinanzas,usfinanzas,Retamar1a,si,finanzas,gfinanzas
+diradmin,diradmin,Retamar1a,si,administracion,gadmin
+usadmin,usadmin,Retamar1a,si,administracion,gadmin
+inv1,inv1,Retamar1a,no,invitados,ginvitados
+inv2,inv2,Retamar1a,no,invitados,ginvitados
+
