@@ -11,6 +11,8 @@ write-host "6. Salir"
 $input = read-host -prompt "Introduce una opción: "
 switch($input){
 1{
+    # Gestion de usuarios del dominio
+
     write-host "Menú de gestión de usuarios"
     write-host "1. Crear un usuario"
     write-host "2. Buscar un usuario"
@@ -36,7 +38,7 @@ switch($input){
             $localizacion = read-host -prompt "Localizacion: "
             $localizacion=(Get-ADOrganizationalUnit -filter * | where{$_.name -like $localizacion}).DistinguishedName
             New-ADUser -name $nombre -SamAccountName $sam -AccountPassword (ConvertTo-SecureString $passwd -AsPlainText -force) -path $localizacion -enabled $activado
-            cls
+            cls # Limpia pantalla
             break
         }
         2{
@@ -93,6 +95,10 @@ switch($input){
     }
 }
 2{
+
+# Gestion de unidades organizativas del dominio
+
+
 write-host "Menú de gestión de unidades organizativas"
 write-host "1. Crear una unidad organizatiza"
 write-host "2. Buscar una unidad organizativa"
@@ -163,12 +169,15 @@ switch($entrada){
 }
 }
 3{
-       write-host "Menu de gestión de grupos"
-       write-host "1. Crear un grupo"
-write-host "2. Buscar un grupo"
-write-host "3. Proteger un grupo"
-write-host "4. Borrar un grupo"
-write-host "5. Salir"
+
+    # Gestion de grupos 
+
+    write-host "Menu de gestión de grupos"
+    write-host "1. Crear un grupo"
+    write-host "2. Buscar un grupo"
+    write-host "3. Proteger un grupo"
+    write-host "4. Borrar un grupo"
+    write-host "5. Salir"
 
 $input = read-host -prompt "Introduce una opción: "
 switch($input){
@@ -243,12 +252,17 @@ switch($input){
 } 
     }
 4{
+    # Exportar datos sobre los objetos a modo de backup o inventario
+
     write-host "Exportar datos sobre objetos del dominio"
-   Get-ADObject -Filter * -properties *| select objectclass, name, distinguishedname | Export-Csv C:\Users\Administrador\Desktop\practicaSSII
+   Get-ADObject -Filter * -properties *| select objectclass, name, distinguishedname | Export-Csv C:\Users\Administrador\Desktop\practicaSSII\objetos.csv
 }
 5{
+
+        # AUtomatizacion de creación de usuarios a partir de un archivo 
+
     write-host "importacion automática"
-    $users=Import-Csv C:\Users\Administrador\Desktop\practicaSSII
+    $users=Import-Csv C:\Users\Administrador\Desktop\practicaSSII\usuarios.csv
     foreach($item in $users){
         $activado
   if($item.activado -like "si"){
@@ -272,10 +286,14 @@ switch($input){
 
 }
 6{
+    write-host ""
     write-host "saliendo"
+    write-host ""
 }
 default{
+    write-host ""
     write-host "Esta opción no vale"
+    write-host ""
     break
 }
 }
